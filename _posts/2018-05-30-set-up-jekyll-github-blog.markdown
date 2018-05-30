@@ -5,18 +5,11 @@ date: 2018-05-30 07:24:37 -0400
 categories: blog
 ---
 
-After trying Wordpress many times, I wanted a simpler blog platform that I had more control over. That led me to try [Github Pages](https://pages.github.com),a static website platform that lets you launch websites from a Github repo. It turned out much easier than expected. Just push updates to the repo, and your static website will be updated. This tutorial will walk you through that process, and how to set it up so that it will be fast for both [Pingdom Speed Test](https://tools.pingdom.com) and [Google PageSpeed](https://developers.google.com/speed/pagespeed/insights/).
+After trying Wordpress many times, I wanted a simpler blog platform that I had more control over. That led me to try [Github Pages](https://pages.github.com), a static website platform that lets you launch websites from a Github repo. It turned out much easier than expected. Just push updates to the repo, and your static website will be updated. This tutorial will walk you through that process, and how to set it up so that it will be fast for both [Pingdom Speed Test](https://tools.pingdom.com) and [Google PageSpeed](https://developers.google.com/speed/pagespeed/insights/).
 
 * **Time**: Less than an hour
 * **Difficulty**: Easy
 * **Cost**: Free
-
-## OVERVIEW
-* **Tooling**: What tools are used?
-* **Set up your Github repo, Domain DNS, and Cloudflare**
-* **Set up your Local Developement Environment**
-* **How to speed it up**: Enhancements for better performance
-
 
 ## TOOLING
 
@@ -29,7 +22,7 @@ After trying Wordpress many times, I wanted a simpler blog platform that I had m
 * **[Cloudflare](https://www.cloudflare.com)** - Cloudflare provides distributed DNS services plus a few other services we will take advantage to speed up your static website.
 
 
-## HOW TO SET IT UP
+## SETUP YOUR DOMAIN & REPO
 For this example I'll be using my domain as the example. Just replace my domain with your own for this to work.
 
 Everything in `gray` should be replaced with your own information.
@@ -89,7 +82,7 @@ Now that your domain is pointed at Cloudflare, we will point the domain to Githu
 At this point, the domain may take up to 24 hours to propogate.
 
 
-## **Local Developement Environment**
+## **Local Environment**
 
 While you wait for the DNS settings to propogate, we can setup our local developement environment. This will be installing Jekyll and setting up a new Jekyll website.
 
@@ -138,3 +131,56 @@ git push -u origin master
 ```
 
 ***Note***: You'll just make sure to add the git address to your repo instead of mine provided above.
+
+## **ENHANCE!**
+
+![Pingdom score](/assets/imgs/2018-05-30-github-blog/first_pingdom.png)
+
+Out of the gates, your site wil have a score of D on Pingdom. Let's fix that. On Cloudflare, you have access to many free tools.
+
+![Cloudflare Toolbar](/assets/imgs/2018-05-30-github-blog/cloudflare_toolbar.png)
+
+On each one of the following tabs, change the settings to the following:
+
+#### Crypto
+
+On the Crypto page, you'll set the SSL value to full. You want your site to use SSL, and this resolves that every page is HTTPS.
+
+| Field | Value |
+| ----------- | ----------- |
+| SSL | Full |
+
+#### Speed
+
+On the Speed page, you'll check every field under **Auto-minify**. This will automatically remove free space in your pages so that pages are as small as possible, and load as quickly as possible.
+
+| Field | Value |
+| ----------- | ----------- |
+| Javascript | [x] |
+| CSS | [x] |
+| HTML | [x] |
+
+
+#### Caching
+
+On the Caching page, we will set the level to standard, and the expiration to longer than 7 days. This will res
+
+| Field | Value |
+| ----------- | ----------- |
+| Caching Level | Standard |
+| Browser Cache Expiration | 8 days |
+
+
+#### Scrape Shield
+Without turning `Email Address Obfuscation` off, you will see a `Specify a Vary: Accept-Encoding header` warning. The reason this goes off is Cloudflare will load a file to obfuscate emails that has the wrong encoding. Therefore, I just turned it off because there are not any emails I want to obfuscate on the site anyway.
+
+| Field | Value |
+| ----------- | ----------- |
+| Email Address Obfuscation | Off |
+
+
+
+## **RESULTS - A!**
+
+![Pingdom score](/assets/imgs/2018-05-30-github-blog/last_pingdom.png)
+
