@@ -1,0 +1,88 @@
+---
+layout: default
+---
+
+<div class="home">
+  {%- if page.title -%}
+  <h1 class="page-heading">{{ page.title | upcase }}</h1> {%- endif -%} {{ content }}
+
+  <div class="section">
+    <p>After 10 years working in Silicon Valley, I hit reset, sold everything and moved from San Francisco. I’m currently exploring the world and learning new technologies to apply towards my next chapter.</p>
+    {% comment %}<a href="/about">{{ "Longer about me" }}</a>{% endcomment %}
+  </div>
+
+  {% comment %}
+  <div class="section">
+    <h2 class="post-list-heading">{{ "Now" | upcase }}</h2>
+    <p>Right now I'm exploring different ideas and working on my technical chops.</p>
+
+    <ul>
+      <li><a href="https://www.orolo.co">Orolo</a> - tracking mechanical watch prices</li>
+    </ul>
+  </div>
+  {% endcomment %}
+
+
+  {%- if site.posts.size > 0 -%}
+  <div class="section">
+    <h2 class="post-list-heading">{{ page.list_title | default: "Posts" | upcase }}</h2>
+    <ul class="post-list">
+      {%- for post in site.posts -%}
+      <li>
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        <span class="post-meta">{{ post.date | date: date_format | upcase }}</span>
+        <h3>
+        <a class="post-link" href="{{ post.url | relative_url }}">
+          {{ post.title | upcase | escape }}
+        </a>
+      </h3> {%- if site.show_excerpts -%} {{ post.excerpt }} {%- endif -%}
+      </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+
+
+  {% comment %}
+  <p class="rss-subscribe">subscribe <a href="{{ " /feed.xml " | relative_url }}">via RSS</a></p>
+  {% endcomment %} {%- endif -%}
+
+  <div class="section">
+    <a href="/assets/india.jpg"><img src="/assets/india.jpg" alt="" height="100" width=100></a>
+    <a href="/assets/tangier.jpg"><img src="/assets/tangier.jpg" alt="" height="100" width=100></a>
+  </div>
+
+  {% comment %}
+  <div class="section">
+    <h2 class="post-list-heading">{{ "Now" | upcase }}</h2>
+    <p>Right now I'm exploring different ideas and working on my technical chops.</p>
+
+    <ul>
+      <li><a href="https://www.orolo.co">Orolo</a> - tracking mechanical watch prices</li>
+      <li><a href="https://www.orolo.co">Instagram</a> - travelling around the world, to experience and learn about as many cultures as possible</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2 class="post-list-heading">{{ "Speaking" | upcase }}</h2>
+    <a href="/assets/india.jpg"><img src="/assets/india.jpg" alt="" height="100" width=100></a>
+    <a href="/assets/tangier.jpg"><img src="/assets/tangier.jpg" alt="" height="100" width=100></a>
+  </div>
+
+  <div class="section">
+    <h2 class="post-list-heading">{{ "Press" | upcase }}</h2>
+    <a href="/assets/india.jpg"><img src="/assets/india.jpg" alt="" height="100" width=100></a>
+    <a href="/assets/tangier.jpg"><img src="/assets/tangier.jpg" alt="" height="100" width=100></a>
+  </div>
+
+  <div class="section" style="border-bottom:0">
+    <h2 class="post-list-heading">{{ "Email List" | upcase }}</h2>
+    <p>Right now I'm working on.... </p>
+  </div>
+  {% endcomment %}
+
+  <div class="section">
+    <h2 class="post-list-heading">{{ "Contact Me" | upcase }}</h2>
+    <a href="/contact">{{ "Contact" }}</a>
+  </div>
+
+</div>
