@@ -24,7 +24,7 @@ After trying Wordpress many times, I wanted a simpler blog platform that I had m
 
 * **[Jekyll](https://jekyllrb.com/docs/home/)** - Jekyll is static website generator with pages written in Markdown.
 
-* **[Markdown](https://daringfireball.net/projects/markdown/)** - Markdown is a language for formatting plain text 
+* **[Markdown](https://daringfireball.net/projects/markdown/)** - Markdown is a language for formatting plain text
 
 * **[Cloudflare](https://www.cloudflare.com)** - Cloudflare provides distributed DNS services plus a few other services we will take advantage to speed up your static website.
 
@@ -52,7 +52,7 @@ Two things of note:
 
 ***Note:*** There was an option to check enforce HTTPS, I was unable to check this box on Github. We will enforce HTTPs with Cloudflare instead.
 
-![Custom Domain settings in Github](../assets/imgs/2018-05-30-github-blog/domain.png)
+![Custom Domain settings in Github](/assets/imgs/2018-05-30-github-blog/domain.png)
 
 ***Note:*** Finally, Github will advise you to point your domain to your Github Pages url. We will not do that but point it to Cloudflare first.
 
@@ -62,7 +62,7 @@ Pointing your domain at Cloudflare and take advantage of their free features to 
 
 * Sign up for Cloudflare, and find your Cloudflare Nameservers
 
-![Nameserver on Cloudflare](../assets/imgs/2018-05-30-github-blog/nameserver.png)
+![Nameserver on Cloudflare](/assets/imgs/2018-05-30-github-blog/nameserver.png)
 
 The values above are what you will then updated on your Domain with your Domain registrar.
 
@@ -81,7 +81,7 @@ This will let you control your domain through Cloudflare and take advantage of t
 
 Now that your domain is pointed at Cloudflare, we will point the domain to Github.
 
-![CNAME records](../assets/imgs/2018-05-30-github-blog/cname.png)
+![CNAME records](/assets/imgs/2018-05-30-github-blog/cname.png)
 
 * Add a **CNAME** record for your Github Page domain: `emilepetrone.github.io`
 * Add another **CNAME** record pointing `www` at your Github Page domain
@@ -91,7 +91,7 @@ At this point, the domain may take up to 24 hours to propogate.
 
 ## **Local Developement Environment**
 
-While you wait for the DNS settings to propogate, we can setup our local developement environment. This will be installing Jekyll and setting up a new Jekyll website. 
+While you wait for the DNS settings to propogate, we can setup our local developement environment. This will be installing Jekyll and setting up a new Jekyll website.
 
 Once you are in the directory of where you want this code to live on your local machine:
 
@@ -101,7 +101,7 @@ jekyll new <name_of_site>
 cd <name_of_site>
 jekyll serve
 ```
-If you run into any issues, make sure **Ruby** is installed with 
+If you run into any issues, make sure **Ruby** is installed with
 
 ```
 Ruby -v
@@ -123,7 +123,7 @@ gem 2.7.6
 ***Note:***
 Within the new directory, there will be a `CNAME` file. It contains the domain you want a visitor to access. This file's contents must match the custom domain name you put in your repo's Github settings. If you make a change in either place, make sure these match.
 
-![Custom Domain settings in Github](../assets/imgs/2018-05-30-github-blog/domain.png)
+![Custom Domain settings in Github](/assets/imgs/2018-05-30-github-blog/domain.png)
 
 
 #### **6. Commit to your Github Repo & Deploy**
@@ -138,4 +138,3 @@ git push -u origin master
 ```
 
 ***Note***: You'll just make sure to add the git address to your repo instead of mine provided above.
-
