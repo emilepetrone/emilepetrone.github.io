@@ -183,3 +183,5 @@ Without turning `Email Address Obfuscation` off, you will see a `Specify a Vary:
 ## **RESULTS - A!**
 
 ![Pingdom score](/assets/imgs/2018-05-30-github-blog/last_pingdom.png)
+
+I am not through with my frontend so the browser caching is not up to par. However overall, you are now off to the races. You've got a free, fast static website!
