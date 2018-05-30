@@ -183,4 +183,3 @@ Without turning `Email Address Obfuscation` off, you will see a `Specify a Vary:
 ## **RESULTS - A!**
 
 ![Pingdom score](/assets/imgs/2018-05-30-github-blog/last_pingdom.png)
-
